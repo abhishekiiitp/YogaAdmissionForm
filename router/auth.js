@@ -19,12 +19,22 @@ const User=require('../model/userSchema');
 router.get('/',(req,res)=>{
     res.send(`Hello world from yoga class router`);
 });
-
+router.get('/payment',(req,res)=>
+{
+    res.send(req.rootUser);
+});
 router.post('/register',(req,res)=>{
-    const{name,email,phone,Gender,Dob,preference}=req.body;
+    const{name,email,phone,gender,dob,preference}=req.body;
 
-    if(!name || !email || !phone || !Gender || !Dob || !preference)
+    console.log(name);
+    console.log(email);
+    console.log(phone);
+    console.log(gender);
+    console.log(dob);
+    console.log(preference);
+    if(!name || !email || !phone || !gender || !dob || !preference)
     {
+        
         return res.status(422).json("plz filled all field");
     }
 
@@ -34,7 +44,7 @@ router.post('/register',(req,res)=>{
             return res.status(422).json({error:"Email already exist"});
         }
 
-        const user=new User({name,email,phone,Gender,Dob,preference});
+        const user=new User({name,email,phone,gender,dob,preference});
 
         user.save().then(()=>{
             res.status(201).json({message:"user registered succeesfully"});

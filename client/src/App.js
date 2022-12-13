@@ -1,16 +1,19 @@
-import React from 'react'
-import logo from './logo.svg';
 import './App.css';
-import Header from './components/header';
-import RegistrationForm from './components/registrationForm'
-const App = () => 
-{
+import AdmissionForm from "./AdmissionForm.js";
+import Payment from "./Payment.js";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+function App() {
   return (
-    <div className="App">
-      <Header/>
-      <RegistrationForm/>
-    </div>
-  )
+    <div className="app">
+      <BrowserRouter>
+    <Routes>
+    <Route path='/' element={<AdmissionForm />} />
+    <Route path='/payment' element={<Payment />} />
+    </Routes>
+    </BrowserRouter>
+  </div>
+  );
 }
 
-export default App
+export default App;

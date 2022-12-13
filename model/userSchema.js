@@ -13,16 +13,19 @@ const userSchema=new mongoose.Schema({
         type:Number,
         required:true
     },
-    Gender:{
+    gender:{
         type:String,
+        possibleValues: ['male','female','other'],
         required:true
     },
-    Dob:{
-        type:String,
-        required:true
+    dob:{
+        type:Date,
+        required:true,
+        trim:true
     },
     preference:{
         type:String,
+        possibleValues: ['6-7 AM','7-8 AM','8-9 AM','5-6 PM'],
         required:true
     }
 

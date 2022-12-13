@@ -16,14 +16,9 @@ app.use(express.json());
 app.use(require('./router/auth'));
 const User=require('./model/userSchema');
 
-app.get('/',(req,res)=>{
-    res.send(`Hello world from yoga class`);
-});
 
-app.get('/payment',(req,res)=>{
-    res.send(`payment from yoga class`);
-});
 
-app.listen(3000,()=>{
+
+app.listen(5000,()=>{
     console.log("server running on port number 3000");
 })
